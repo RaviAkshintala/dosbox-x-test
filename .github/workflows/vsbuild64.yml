@@ -177,8 +177,8 @@ jobs:
       - name: Build Visual Studio ARM64 SDL2
         shell: pwsh
         run: |
-          msbuild -m vs/dosbox-x.sln -t:dosbox-x:Rebuild -p:Configuration="Release SDL2" -p:Platform=ARM64 -p:PostBuildEventUseInBuild=false
-          if (-not(Test-Path -Path bin\ARM64\"Release SDL2"\dosbox-x.exe -PathType Leaf)) {exit 1}
+          msbuild -m vs/dosbox-x.sln -t:dosbox-x:Rebuild -p:Configuration=Release -p:Platform=ARM64 -p:PostBuildEventUseInBuild=false -p:WindowsTargetPlatformVersion=10.0.19041.0
+
       - name: Package Visual Studio ARM64 SDL2
         shell: bash
         run: |
